@@ -6,7 +6,7 @@
     <groupId>org.rdlinux</groupId>
     <artifactId>ez-mybatis-spring3-project</artifactId>
     <packaging>pom</packaging>
-    <version>0.9.4.RS</version>
+    <version>0.9.5.RS</version>
     <name>ez-mybatis-spring3-project</name>
     <url>https://github.com/davinyue/ez-mybatis-spring3-project</url>
     <description>ez-mybatis-spring3-project</description>
@@ -37,7 +37,7 @@
     <modules>
         <module>ez-mybatis-spring3</module>
         <module>ez-mybatis-spring3-boot-start</module>
-        <module>ez-mybatis-plus-spring3-boot-start</module>
+        <module>ez-mybatis-to-plus-spring3-boot-start</module>
     </modules>
     <build>
         <plugins>
