@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.rdlinux</groupId>
         <artifactId>ez-mybatis-spring3-project</artifactId>
-        <version>0.9.5.RS</version>
+        <version>0.9.6.RS</version>
     </parent>
     <packaging>jar</packaging>
     <artifactId>ez-mybatis-to-plus-spring3-boot-start</artifactId>
