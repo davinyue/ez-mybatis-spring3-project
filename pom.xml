@@ -6,7 +6,7 @@
     <groupId>org.rdlinux</groupId>
     <artifactId>ez-mybatis-spring3-project</artifactId>
     <packaging>pom</packaging>
-    <version>0.9.7.RS</version>
+    <version>0.9.8.RS</version>
     <name>ez-mybatis-spring3-project</name>
     <url>https://github.com/davinyue/ez-mybatis-spring3-project</url>
     <description>ez-mybatis-spring3-project</description>
@@ -54,13 +54,11 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
-            <!-- lombok编译插件 -->
             <plugin>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok-maven-plugin</artifactId>
                 <version>1.18.4.0</version>
             </plugin>
-            <!--打包源码 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -74,7 +72,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- 打包java-doc -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -93,7 +90,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- GPG签名 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
