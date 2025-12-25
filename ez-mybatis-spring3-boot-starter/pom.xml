@@ -4,11 +4,11 @@
     <parent>
         <groupId>org.rdlinux</groupId>
         <artifactId>ez-mybatis-spring3-project</artifactId>
-        <version>0.9.8.RS</version>
+        <version>0.9.9.RS</version>
     </parent>
     <packaging>jar</packaging>
-    <artifactId>ez-mybatis-spring3-boot-start</artifactId>
-    <name>ez-mybatis-spring3-boot-start</name>
+    <artifactId>ez-mybatis-spring3-boot-starter</artifactId>
+    <name>ez-mybatis-spring3-boot-starter</name>
     <url>https://github.com/davinyue/ez-mybatis-spring3-project</url>
     <description>ez-mybatis</description>
     <licenses>
@@ -38,8 +38,8 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <spring.version>6.2.2</spring.version>
-        <spring-boot.version>3.4.5</spring-boot.version>
+        <spring.version>6.2.15</spring.version>
+        <spring-boot.version>3.5.9</spring-boot.version>
     </properties>
     <dependencies>
         <dependency>
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>3.0.4</version>
+            <version>3.0.5</version>
             <exclusions>
                 <exclusion>
                     <artifactId>mybatis-spring</artifactId>
