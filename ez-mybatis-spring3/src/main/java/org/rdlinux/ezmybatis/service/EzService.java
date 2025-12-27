@@ -8,150 +8,150 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * 基础service
+ * Base service interface
  *
- * @param <MdType> 实体类型
- * @param <PkType> 主键类型
+ * @param <MdType> Entity type
+ * @param <PkType> Primary key type
  */
 public interface EzService<MdType, PkType extends Serializable> {
     /**
-     * 根据条件查询数据
+     * Query data by conditions
      *
-     * @param param 查询参数
+     * @param param Query parameters
      */
     List<MdType> query(EzQuery<MdType> param);
 
     /**
-     * 根据条件查询总数
+     * Query total count by conditions
      *
-     * @param param 查询参数
+     * @param param Query parameters
      */
     int queryCount(EzQuery<MdType> param);
 
     /**
-     * 根据条件数据和总数
+     * Query data and total count by conditions
      *
-     * @param param 查询参数
+     * @param param Query parameters
      */
     <RetType> DcDTO<RetType> queryDataAndCount(EzQuery<RetType> param);
 
     /**
-     * 根据id查询
+     * Get entity by ID
      *
-     * @param id 主键
+     * @param id Primary key
      */
     MdType getById(PkType id);
-    
+
     /**
-     * 根据多个id查询
+     * Get entities by multiple IDs
      *
-     * @param ids 主键集合
+     * @param ids Collection of primary keys
      */
     List<MdType> getByIds(Collection<PkType> ids);
 
     /**
-     * 根据实体属性查询
+     * Get entities by field
      *
-     * @param field 实体属性
-     * @param value 属性值
+     * @param field Entity field name
+     * @param value Field value
      */
     List<MdType> getByField(String field, Object value);
 
     /**
-     * 根据实体属性查询一条记录
+     * Get one entity by field
      *
-     * @param field 实体属性
-     * @param value 属性值
+     * @param field Entity field name
+     * @param value Field value
      */
     MdType getOneByField(String field, Object value);
 
     /**
-     * 根据列明查询
+     * Get entities by column
      *
-     * @param column 表列
-     * @param value  列值
+     * @param column Table column name
+     * @param value  Column value
      */
     List<MdType> getByColumn(String column, Object value);
 
     /**
-     * 根据列明查询一条记录
+     * Get one entity by column
      *
-     * @param column 表列
-     * @param value  列值
+     * @param column Table column name
+     * @param value  Column value
      */
     MdType getOneByColumn(String column, Object value);
 
     /**
-     * 更新, 只会更新非空字段
+     * Update entity, only non-null fields will be updated
      */
     int update(MdType model);
 
     /**
-     * 批量更新, 只会更新非空字段
+     * Batch update entities, only non-null fields will be updated
      */
     int batchUpdate(Collection<MdType> models);
 
     /**
-     * 替换, 更新全部字段
+     * Replace entity, all fields will be updated
      */
     int replace(MdType model);
 
     /**
-     * 批量替换, 更新全部字段
+     * Batch replace entities, all fields will be updated
      */
     int batchReplace(Collection<MdType> models);
 
     /**
-     * 根据id删除
+     * Delete entity by ID
      */
     int deleteById(PkType id);
 
     /**
-     * 根据id批量删除
+     * Batch delete entities by IDs
      */
     int deleteByIds(Collection<PkType> ids);
 
     /**
-     * 根据属性删除
+     * Delete entities by field
      *
-     * @param field 实体属性
-     * @param value 属性值
+     * @param field Entity field name
+     * @param value Field value
      */
     int deleteByField(String field, Object value);
 
     /**
-     * 根据列删除
+     * Delete entities by column
      *
-     * @param column 表列
-     * @param value  列值
+     * @param column Table column name
+     * @param value  Column value
      */
     int deleteByColumn(String column, Object value);
 
     /**
-     * 删除
+     * Delete entity
      *
-     * @param model 要删除的实体
+     * @param model Entity to delete
      */
     int delete(MdType model);
 
     /**
-     * 批量删除
+     * Batch delete entities
      *
-     * @param models 要删除的实体集合
+     * @param models Collection of entities to delete
      */
     int batchDelete(Collection<MdType> models);
 
     /**
-     * 保存
+     * Save entity
      *
-     * @param model 要保存的实体
+     * @param model Entity to save
      */
     int save(MdType model);
 
     /**
-     * 批量保存
+     * Batch save entities
      *
-     * @param models 要保存的实体集合
+     * @param models Collection of entities to save
      */
     int batchSave(Collection<MdType> models);
 }
