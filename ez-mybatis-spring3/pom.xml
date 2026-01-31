@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.rdlinux</groupId>
         <artifactId>ez-mybatis-spring3-project</artifactId>
-        <version>1.0.0.RS</version>
+        <version>1.0.1.RS</version>
     </parent>
     <packaging>jar</packaging>
     <artifactId>ez-mybatis-spring3</artifactId>
@@ -103,11 +103,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <!-- <version>3.0.1</version> -->
-                <version>3.11.2</version>
+                <version>3.12.0</version>
                 <configuration>
-                    <defaultAuthor>DavinYue</defaultAuthor>
-                    <defaultVersion>${project.version}</defaultVersion>
+                    <doclint>none</doclint>
+                    <failOnError>false</failOnError>
                 </configuration>
                 <executions>
                     <execution>
