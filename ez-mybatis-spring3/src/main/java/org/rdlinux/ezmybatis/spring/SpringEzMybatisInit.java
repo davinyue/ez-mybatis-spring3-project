@@ -19,7 +19,9 @@ public class SpringEzMybatisInit {
         Assert.notNull(applicationContext, "applicationContext can not be null");
         //初始化实体信息构造器
         applicationContext.getBeansOfType(EntityInfoBuilder.class).values()
-                .forEach(EzEntityClassInfoFactory::setEntityInfoBuilder);
+                .forEach(b -> {
+                    EzMybatisContent.getDbDialectProvider(ezMybatisConfig.getConfiguration()).setEntityInfoBuilder(b);
+                });
         //初始化实体信息缓存器
         try {
             EzMybatisEntityInfoCache entityInfoCache = applicationContext.getBean(EzMybatisEntityInfoCache.class);
