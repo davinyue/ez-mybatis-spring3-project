@@ -6,6 +6,7 @@ import org.rdlinux.ezmybatis.core.classinfo.EzEntityClassInfoFactory;
 import org.rdlinux.ezmybatis.core.classinfo.EzMybatisEntityInfoCache;
 import org.rdlinux.ezmybatis.core.classinfo.entityinfo.build.EntityInfoBuilder;
 import org.rdlinux.ezmybatis.core.interceptor.listener.*;
+import org.rdlinux.ezmybatis.core.sqlstruct.table.DynamicTableResolver;
 import org.rdlinux.ezmybatis.utils.Assert;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
@@ -17,11 +18,6 @@ public class SpringEzMybatisInit {
     public static void init(EzMybatisConfig ezMybatisConfig, ApplicationContext applicationContext) {
         Assert.notNull(ezMybatisConfig, "ezMybatisConfig can not be null");
         Assert.notNull(applicationContext, "applicationContext can not be null");
-        //初始化实体信息构造器
-        applicationContext.getBeansOfType(EntityInfoBuilder.class).values()
-                .forEach(b -> {
-                    EzMybatisContent.getDbDialectProvider(ezMybatisConfig.getConfiguration()).setEntityInfoBuilder(b);
-                });
         //初始化实体信息缓存器
         try {
             EzMybatisEntityInfoCache entityInfoCache = applicationContext.getBean(EzMybatisEntityInfoCache.class);
@@ -35,6 +31,21 @@ public class SpringEzMybatisInit {
         }
         //初始化上下文
         EzMybatisContent.init(ezMybatisConfig);
+        Map<String, DynamicTableResolver> tableResolverMap = applicationContext.getBeansOfType(
+                DynamicTableResolver.class);
+        if (tableResolverMap.size() > 1) {
+            throw new IllegalStateException("Only one DynamicTableResolver is allowed, but found: "
+                    + tableResolverMap.keySet());
+        }
+        if (tableResolverMap.size() == 1) {
+            EzMybatisContent.setDynamicTableResolver(ezMybatisConfig,
+                    tableResolverMap.values().iterator().next());
+        }
+        //初始化实体信息构造器
+        applicationContext.getBeansOfType(EntityInfoBuilder.class).values()
+                .forEach(b -> {
+                    EzMybatisContent.getDbDialectProvider(ezMybatisConfig.getConfiguration()).setEntityInfoBuilder(b);
+                });
         //添加事件处理器
         Map<String, EzMybatisInsertListener> insertListenerMap = applicationContext.getBeansOfType(
                 EzMybatisInsertListener.class);
